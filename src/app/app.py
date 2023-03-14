@@ -1,5 +1,6 @@
-from fastapi import FastAPI
+from fastapi import Depends, FastAPI
 from src.utils.exec_task import exec_task
+from src.utils.not_empty import not_empty
 from src.functions import game
 
 app = FastAPI()
@@ -14,7 +15,7 @@ async def game_short_description():
 
 
 @app.get('/games/{name}')
-async def game_long_description(name):
+async def game_long_description(name: str = Depends(not_empty)):
     """
         Irá retornar um objeto GameLongDescription em JSON
     """
