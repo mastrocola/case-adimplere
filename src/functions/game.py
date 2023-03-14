@@ -30,4 +30,4 @@ async def long_description(params):
         'long_description': req.get('longgest-game-description') or req.get('long-term-description') or req.get('longDescription')
     } for req in request]
 
-    return [res for res in result_list if res['name'] == params['name']]
+    return [res for res in result_list if res['name'] == params['name']][0]
