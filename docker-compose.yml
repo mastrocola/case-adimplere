@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    container_name: case-adimplere
+    ports:
+      - 8888:8888
+    environment:
+      - ENVIRONMENT=development
+      - PROJECT=CASE_ADIMPLERE
+      - MICROSOFT_STORE_URL={protocol}://{domain}/api/v1.2/jogos
+      - NINTENDO_STORE_URL={protocol}://{domain}/nintendo/api/v3/portal/games/basic
+      - STEAM_URL={protocol}://{domain}/api/v1/games
+    volumes:
+      - .:/app
