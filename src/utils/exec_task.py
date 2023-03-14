@@ -4,11 +4,12 @@ from src.settings import PROJECT
 
 
 def end_time_ms(start_time):
-    return (time() - start_time) * 1000
+    return round((time() - start_time) * 1000, 2)
 
 
 async def exec_task(task_function, params=None):
     start_time = time()
+
     code = f'{PROJECT}_{task_function.__name__.upper()}'
     module = task_function.__module__
 
